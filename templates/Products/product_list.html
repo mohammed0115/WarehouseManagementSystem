@@ -1,0 +1,46 @@
+
+{% extends 'TableBase/index.html' %}
+
+
+{% block  navbartitle %}
+                      
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'Product-create' %}">Create New product</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'sale-index' %}">Sales</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url 'purchase-index' %}">Purchase</a>
+                      </li>
+{% endblock   %}
+        
+{% block thead %}    
+<th class="cell100 column1 text-justify">Name</th>
+<th class="cell100 column2 text-justify">sale_price</th>
+<th class="cell100 column3 text-justify">p_cost</th>
+<th class="cell100 column4 text-justify">company</th>
+<th class="cell100 column5 text-justify">serial_number</th>
+<th class="cell100 column6 text-justify">delete/update</th>
+
+
+{% endblock %}
+
+
+{% block Tbody %}                                
+ {% for object in object_list %} 
+                        
+<tr class="row100 body text-justify">
+    <td class="cell100 column1 text-justify"><a href="{% url 'Product-detail' object.pk %}">{{object.name}}</a></td>
+    <td class="cell100 column2 text-justify">{{object.sale_price}}</td>
+    <td class="cell100 column3 text-justify">{{object.p_cost}}</td>
+    <td class="cell100 column4 text-justify">{{object.company}}</td>
+    <td class="cell100 column5 text-justify">{{object.serial_number}}</td>
+    <td class="cell100 column6 text-justify image-responsive"><td><a href="{% url 'Product-delete' object.pk %}" class="fa fa-trash image-responsive "></a>
+   </td><td><a href="{% url 'Product-update' object.pk %}" class="fa fa-pencil-alt image-responsive"></a></td></td>
+</tr>
+{% endfor %}
+{% endblock  %}
