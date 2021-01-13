@@ -1,0 +1,90 @@
+{% extends 'product/base.html' %} {% block 'content' %}
+
+<center>
+    <div class="container d-flex justify-content-center">
+        <div class="row ">
+            <form method="post">
+                {% csrf_token %}
+                <div class="row mt-5 align-items-center">
+                    <div class="col-md-3 text-center mb-5">
+                        <div class="avatar avatar-xl">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="..." class="avatar-img rounded-circle" />
+                        </div>
+                    </div>
+
+                </div>
+                <hr class="my-4" />
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="firstname">Productname</label>
+                        <input type="text" id="firstname" name="name" value="{{object.name}}" class="form-control" placeholder="Brown" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="lastname">Type</label>
+                        <input type="text" id="lastname" name="p_type" value="{{object.p_type}}" class="form-control" placeholder="Asher" />
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="lastname"> Unit price</label>
+                        <input type="text" id="lastname" name="sale_price" value="{{object.sale_price}}" class="form-control" placeholder="Asher" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="lastname"> Total cost(purchase + rent+other)</label>
+                        <input type="text" id="lastname" name="p_cost" value="{{object.p_cost}}" class="form-control" placeholder="Asher" />
+                    </div>
+                </div>
+                <hr class="my-4" />
+                <div class="form-row">
+                    <div class="form-group  col-md-6">
+                        <label for="inputEmail4">Company producted</label>
+                        <input type="email" class="form-control" id="inputEmail4" value="{{object.company}}" name="company" placeholder="brown@asher.me" />
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputAddress5">Category</label>
+                        <input type="text" class="form-control" id="inputAddress5" value="{{object.category}}" name="category" placeholder="P.O. Box 464, 5975 Eget Avenue" />
+                    </div>
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="inputAddress5">Serial number</label>
+                    <input type="text" class="form-control" id="inputAddress5" value="{{object.serial_number}}" name="serial_number" placeholder="P.O. Box 464, 5975 Eget Avenue" />
+                </div>
+
+
+
+                <!-- <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="inputPassword4">Old Password</label>
+                            <input type="password" class="form-control" id="inputPassword5" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword5">New Password</label>
+                            <input type="password" class="form-control" id="inputPassword5" />
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword6">Confirm Password</label>
+                            <input type="password" class="form-control" id="inputPassword6" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="mb-2">Password requirements</p>
+                        <p class="small text-muted mb-2">To create a new password, you have to meet all of the following requirements:</p>
+                        <ul class="small text-muted pl-4 mb-0">
+                            <li>Minimum 8 character</li>
+                            <li>At least one special character</li>
+                            <li>At least one number</li>
+                            <li>Can’t be the same as a previous password</li>
+                        </ul>
+                    </div>
+                </div> -->
+                <button type="submit" class="btn btn-primary">Save Change</button>
+            </form>
+
+
+        </div>
+    </div>
+</center>
+{% endblock %}

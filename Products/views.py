@@ -12,40 +12,23 @@ from Products.forms import ProductForm
 
 class ProductCreate(CreateView):
     form_class = ProductForm
-    template_name="Products/product_create.html"
-    success_url = '/'
-    def form_valid(self, form):
-        
-       
-        form.save()
-        return super(ProductCreate, self).form_valid(form)
-
-    def form_invalid(self, form):
-        # print "form is invalid"
-        return HttpResponse("form is invalid.. this is just an HttpResponse object")
-
-
-    def get_success_url(self):
-        return reverse("Product-list")
-
-    def get_context_data(self, **kwargs):
-        kwargs["object_list"] = Product.objects.all()
-        return super(ProductCreate, self).get_context_data(**kwargs)
+    template_name="product/product.html"
+    success_url = reverse_lazy('product-list')
+    
+    
 
 class ProductUpdate(UpdateView):
     model = Product
-    form_class = ProductForm
-    template_name_suffix = '_update_form'
+    template_name="product/product.html"
     def get_success_url(self):
-        return reverse("Product-list")
+        return reverse("product-list")
     
     
 
 class ProductDelete(DeleteView):
-    # form_class = ProductForm
     model= Product
-    success_url = reverse_lazy('Product-list')
-    items_to_delete = []
+    template_name="product/product_confirm_delete.html"
+    success_url = reverse_lazy('product-list')
    
 
 
@@ -55,3 +38,4 @@ class ProductDetailView(DetailView):
     model= Product
 class ProductListView(ListView):
     queryset= Product.objects.all()
+    template_name="product/index.html"
