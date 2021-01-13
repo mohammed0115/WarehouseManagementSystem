@@ -1,0 +1,10 @@
+body {
+   direction: rtl !important;
+   text-align: right !important;
+  }
+  .testimonial{
+    direction: ltr !important;
+  }
+  .address{
+    text-align: left !important;
+  }

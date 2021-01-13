@@ -5,6 +5,10 @@ from django.template import Context, loader
 from Products.models import Product
 # Create your views here.
 def index (request):
-    # template = loader.get_template("Base/home.html")
-    # return   HttpResponse(template.render())
-     return render(request,'Home/home.html',{"object":Product})
+     return render(request,'Pages/index.html',{})
+def customerIndex(request):
+     return render(request,'customer/index.html',{})
+def vendorIndex(request):
+     return render(request,'vendor/index.html',{})
+def ProductIndex(request):
+     return render(request,'product/index.html',{})

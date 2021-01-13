@@ -8,9 +8,7 @@ class Customer(models.Model):
     email   = models.EmailField("Email", max_length=254)
     phone   = models.CharField("phone number", max_length=50)
     nationalno = models.CharField("national number", max_length=50)
-
     
-
     class Meta:
         verbose_name = "Customer"
         verbose_name_plural = "Customers"

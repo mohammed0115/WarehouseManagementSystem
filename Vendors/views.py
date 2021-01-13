@@ -17,20 +17,27 @@ from .models import Vendor
 class VendorCreate(CreateView):
     model = Vendor
     fields=['nationalno','fname','minName','lname','email','phone']
-    success_url = reverse_lazy('Vendor-list')
+    template_name="vendor/vendor.html"
+    success_url = reverse_lazy('vendor:vendor-list')
   
 class VendorUpdate(UpdateView):
     model = Vendor
     fields=['nationalno','fname','minName','lname','email','phone']
-    success_url = reverse_lazy('Vendor-list')
+    template_name="vendor/vendor.html"
+    success_url = reverse_lazy('vendor:vendor-list')
 
 class VendorDelete(DeleteView):
     # form_class = ProductForm
     model= Vendor
-    success_url = reverse_lazy('Vendor-list')
+    success_url = reverse_lazy('vendor:vendor-list')
+    template_name="vendor/vendor_confirm_delete.html"
+
     
 class VendorDetailView(DetailView):
     model= Vendor
+    # template_name="vendor/index.html"
+
     
 class VendorListView(ListView):
     queryset= Vendor.objects.all()
+    template_name="vendor/index.html"
